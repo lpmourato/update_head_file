@@ -8,7 +8,7 @@ You need run the script including the directory where are the files that will be
 <br>
 Example:<br>
 <code>
-\~lpm./update_copyright ~/lpm/project java
+\~lpm$./update_copyright ~/lpm/project java
 </code>
 
 PS: You can contibutes with this project! :)
