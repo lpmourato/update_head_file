@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DIRECTORY=$1
+FILE_EXT=.$2
+
+if [ "$DIRECTORY" = "" ];then
+    echo "Please, inform the directory param."
+    exit 1
+fi
+
+if [ "$FILE_EXT" = "" ];then
+    echo "Please, inform the file extension."
+    exit 1
+fi
+
+if [ ! -d "$DIRECTORY" ]; then
+    echo "Please, inform a valid directory."
+    exit 1
+fi
+
+shopt -s globstar
+
+for file in $DIRECTORY/**
+do
+	if [[ ${file: -5} == $FILE_EXT ]]
+	then
+      	    sed -i ' 1 i\/*\n * Example of \n * Copyright 2015 \n */\n'  $file
+	    echo "File updated:" $file
+  	fi
+done 
